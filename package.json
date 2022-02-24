@@ -1,0 +1,22 @@
+{
+  "name": "learn-b",
+  "version": "1.0.0",
+  "description": "learn ",
+  "main": "main.ts",
+  "scripts": {
+    "test": "test",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "learn"
+  ],
+  "author": "aniket",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^7.0.0"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1"
+  }
+}

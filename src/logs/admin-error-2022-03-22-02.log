@@ -1,0 +1,2 @@
+{"label":"admin-log","level":"error","message":"Error in MongoDB Fast Conn.","timestamp":"2022-03-21T20:31:14.574Z"}
+{"label":"admin-log","level":"error","message":"Error in MongoDB Slow Conn.","timestamp":"2022-03-21T20:31:14.578Z"}

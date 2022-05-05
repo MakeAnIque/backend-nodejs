@@ -5,6 +5,7 @@ import {
 } from './interface/express.interface';
 import { readFileSync } from 'fs-extra';
 import { createServer, ServerOptions } from 'spdy';
+import http from 'http';
 import { SslAndTlsConfig } from '../../config';
 import { PRIVATE_KEY, CERTIFICATE, CA_BUNDLE } from '../../lib/constants';
 import { ENVIRONMENTS_VARIABLE, ProtocolType } from '../../lib/enums';
@@ -35,6 +36,9 @@ export abstract class ExpressApp implements ExpressApplication {
     if (this.certificate) {
       return createServer(this.certificate as ServerOptions, this.app);
     }
-    return createServer(this.app);
+    /**
+     * TODO: Add support for HTTP/2 connections
+     */
+    return http.createServer(this.app);
   }
 }

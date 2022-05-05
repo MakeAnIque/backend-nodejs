@@ -6,6 +6,7 @@ import {
 } from '../../../lib/constants/database.constant';
 import { ENVIRONMENTS_VARIABLE } from '../../../lib/enums';
 import { getEnvironmentData } from '../../../lib/utils';
+import { CronBootstrap } from '../api/v1/cron';
 import { MONGODB_CONFIG } from '../config';
 import { MongodbService } from '../service/database/mongodb.service';
 
@@ -16,6 +17,7 @@ export class ThirdPartyDependentApplication {
   constructor(public readonly app: Application) {
     this.fastQueriesToDatabaseMongodbConnection();
     this.slowQueriesToDatabaseMongodbConnection();
+    this.startCronJob();
 
     /**Init Logger */
 
@@ -80,5 +82,9 @@ export class ThirdPartyDependentApplication {
     /**Init Morgan logger for http with winston */
 
     this.app.use(adminMorganMiddleware(Logger.getLogger()));
+  }
+
+  async startCronJob() {
+    new CronBootstrap();
   }
 }

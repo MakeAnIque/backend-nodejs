@@ -7,5 +7,6 @@ export function getRuntimeServerTypeAndStage(
     deployType = processArgv[3];
 
   const serverTypeAndStage = new ServerTypeAndStage(serverType, deployType);
+
   return serverTypeAndStage;
 }
